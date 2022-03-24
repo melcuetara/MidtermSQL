@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Midterm SQL</string>
+    <string name="search">Search</string>
+    <string name="update">Update</string>
+    <string name="add_student">Add Student</string>
+    <string name="create">Create</string>
+    <string name="retrieve_data">Retrieve Data</string>
+    <string name="remove_student">Remove Student</string>
+    <string name="display_all">Display All</string>
+    <string name="update_student_information">Update Student Information</string>
+    <string name="delete">Delete</string>
 </resources>
