@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_price"
         android:hint="Quantity"
-        android:inputType="numberDecimal"
+        android:inputType="number"
         android:textSize="24dp" />
     <Button
         android:id="@+id/btn_insert"
@@ -86,11 +86,19 @@
         android:textSize="24dp"
         android:text="View Data"
         android:layout_below="@id/btn_delete"/>
+
     <Button
         android:id="@+id/btn_viewAllData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24dp"
+        android:layout_below="@id/btn_view"
         android:text="View All Data"
-        android:layout_below="@id/btn_view"/>
+        android:textSize="24dp" />
+    <Button
+        android:id="@+id/btn_clearData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_viewAllData"
+        android:text="Clear Fields"
+        android:textSize="24dp" />
 </RelativeLayout>

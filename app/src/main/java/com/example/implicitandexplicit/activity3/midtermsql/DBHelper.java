@@ -44,5 +44,44 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    public Boolean updateProductData(String prodId, String prodName, String prodDesc, float price, int quantity) {
 
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("prodName", prodName);
+        contentValues.put("prodDesc", prodDesc);
+        contentValues.put("price", price);
+        contentValues.put("quantity", quantity);
+        Cursor cursor = DB.rawQuery("Select * from ProductTable where prodId = ?", new String[]{prodId});
+        if (cursor.getCount() > 0) {
+            long result = DB.update("ProductTable", contentValues, "prodId=?", new String[]{prodId});
+            if (result == -1) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+    public Boolean deleteData (String prodId) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select * from ProductTable where prodId = ?", new String[]{prodId});
+        if (cursor.getCount() > 0) {
+            long result = DB.delete("ProductTable", "prodId=?", new String[]{prodId});
+            if (result == -1) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public Cursor getData () {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select * from ProductTable ", null);
+        return cursor;
+    }
 }
